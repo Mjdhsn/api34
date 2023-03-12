@@ -2243,7 +2243,7 @@ def mlprediction(urlkey: str= None,credentials: HTTPAuthorizationCredentials = S
 
 from application.app_v1.dashboard import dashboard
 @app.post("/dashboard_pollingunit",tags=["Dashboard routes"])
-async def dashboardpu(type:str,constiuency_name:int =486):
+async def dashboardpu(type:str= Body(...),constiuency_name:int= Body(...)):
 
  
     return dashboard.pollingunit_dashboard(type,constiuency_name)
@@ -2251,7 +2251,7 @@ async def dashboardpu(type:str,constiuency_name:int =486):
 
 
 @app.post("/dashboard_ward",tags=["Dashboard routes"])
-async def dashboardpu(type:str,constiuency_name:int =486):
+async def dashboardpu(type:str= Body(...),constiuency_name:int= Body(...)):
 
  
     return dashboard.ward_dashboard(type,constiuency_name)
@@ -2259,7 +2259,7 @@ async def dashboardpu(type:str,constiuency_name:int =486):
 
 
 @app.post("/dashboard_lga",tags=["Dashboard routes"])
-async def dashboardpu(type:str,constiuency_name:int =486):
+async def dashboardpu(type:str= Body(...),constiuency_name:int= Body(...)):
 
  
     return dashboard.lga_dashboard(type,constiuency_name)
@@ -2273,7 +2273,7 @@ async def dashboardpu(type:str,constiuency_name:int =486):
 #     return dashboard.district_dashboard()
 
 @app.post("/dashboard_rep",tags=["Dashboard routes"])
-async def dashboardpu(constiuency_name:int =486):
+async def dashboardpu(constiuency_name:int= Body(...)):
 
  
     return dashboard.constituency_dashboard(constiuency_name)
@@ -2430,3 +2430,4 @@ handler = Mangum(app=app)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0",  reload=True, access_log=False,port=5000)
+
