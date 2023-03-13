@@ -13,7 +13,7 @@ conditions_pu = {
             "slider_gragh":f"""{presidential_table_pu['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
  IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
@@ -87,7 +87,7 @@ conditions_ward = {
             "slider_gragh":f"""{presidential_table_ward['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
  IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
@@ -153,7 +153,7 @@ conditions_lga = {
             "slider_gragh":f"""{presidential_table_lga['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
  IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
@@ -208,11 +208,11 @@ conditions_state = {
      
             "Registered Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(Total_Registered_voters),0) AS count1  FROM  state_result_table""",
             "Accredited Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(Total_Accredited_voters),0) AS count1  FROM  state_result_table""",
-            "Valid Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(total_vote_casted),0)  AS count1 FROM  lgat """,
+            "Valid Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(total_vote_casted),0)  AS count1 FROM state_result_table  """,
             "slider_gragh":f"""{presidential_table_state['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
  IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
@@ -241,7 +241,7 @@ def pollingunit_dashboard(type,constiuency_name):
             "slider_gragh":f"""{presidential_table_pu_rep['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
             APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
             PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
-            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
+            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
             (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
             IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house where house_id={constiuency_name}		
             """ ,
@@ -432,7 +432,7 @@ def ward_dashboard(type,constiuency_name):
             "slider_gragh":f"""{presidential_table_ward_rep['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
  IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house 		
 where house_id={constiuency_name} """,
@@ -609,7 +609,7 @@ def lga_dashboard(type,constiuency_name):
             "slider_gragh":f"""{presidential_table_lga_rep['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
             APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
             PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
-            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
+            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
             (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
             IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house where house_id={constiuency_name}		
             """,
