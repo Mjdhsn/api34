@@ -21,7 +21,7 @@ conditions_pu = {
  		if (count(*)=11212, 'collation completed','collation in progress......')) as message 
  		from pu_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_pu['query']}  select count(*) as count1 from pu_result_table where (status='collated' or status='canceled') """,
+            "collation_slider_value":f"""{presidential_table_pu['query']}  select round(count(*)/11212*100,2) as count1 from pu_result_table where (status='collated' or status='canceled') """,
             "total_pu":f"""{presidential_table_pu['query']} select count(*) AS count1 from pu_result_table""" ,
             "collated":f"""{presidential_table_pu['query']} select count(*) as count1 from pu_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_pu['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='collated'""",
@@ -95,7 +95,7 @@ conditions_ward = {
  		if (count(*)=484, 'collation completed','collation in progress......')) as message 
  		from ward_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_ward['query']}  select count(*) as count1 from ward_result_table where (status='collated' or status='canceled') """,
+            "collation_slider_value":f"""{presidential_table_ward['query']}  select round(count(*)/484*100,2) as count1 from ward_result_table where (status='collated' or status='canceled') """,
             "total_ward":f"""{presidential_table_ward['query']} select count(*) AS count1 from ward_result_table""" ,
             "collated":f"""{presidential_table_ward['query']} select count(*) as count1 from ward_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_ward['query']} select lga_name,ward_name,remarks from wt where status='collated'""",
@@ -161,7 +161,7 @@ conditions_lga = {
  		if (count(*)=774, 'collation completed','collation in progress......')) as message 
  		from lga_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_lga['query']}  select count(*) as count1 from lga_result_table where (status='collated' or status='canceled') """,
+            "collation_slider_value":f"""{presidential_table_lga['query']}  select round(count(*)/44*100,2) as count1 from lga_result_table where (status='collated' or status='canceled') """,
             "total_lga":f"""{presidential_table_lga['query']} select count(*) AS count1 from lga_result_table""" ,
             "collated":f"""{presidential_table_lga['query']} select count(*) as count1 from lga_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_lga['query']} select lga_name,remarks from lgat where status='collated'""",
@@ -220,7 +220,7 @@ conditions_state = {
  		if (count(*)=1, 'collation completed','collation in progress......'))  as message 
  		from state_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_state['query']}  select count(*) as count1 from state_result_table where (status='collated' or status='canceled') """
+            "collation_slider_value":f"""{presidential_table_state['query']}  select round(count(*)/1*100,2) as count1 from state_result_table where (status='collated' or status='canceled') """
          
             
 
@@ -249,7 +249,7 @@ def pollingunit_dashboard(type,constiuency_name):
  		if (count(*)=(select count(*) from house_pu_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) as message
  		from house_pu_table where (status='collated' or status='canceled') and house_id={constiuency_name};			
                 """,
-                    "collation_slider_value":f"""{presidential_table_pu_rep['query']}   select count(*) from house_pu_table where (status='collated' or status='canceled') and house_id=486 
+                    "collation_slider_value":f"""{presidential_table_pu_rep['query']}   select round(count(*)/(select count(*) from house_pu_table where house_id={constiuency_name})*100,2) as count1 from house_pu_table where (status='collated' or status='canceled') and house_id={constiuency_name} 
  (slider range from 0 to 'select count(*) from house_pu_table where house_id={constiuency_name}') """,
                     "total_pu":f"""{presidential_table_pu_rep['query']} select count(*) AS count1 from house_pu_table where house_id={constiuency_name} """ ,
                     "collated":f"""{presidential_table_pu_rep['query']} select count(*) as count1 from house_pu_table where status='collated' and house_id={constiuency_name}""",
@@ -440,7 +440,7 @@ where house_id={constiuency_name} """,
  		if (count(*)=(select count(*) from house_ward_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) 
  		from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name}		
 		 """,
-            "collation_slider_value":f"""{presidential_table_ward_rep['query']}  select count(*) as count1 from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
+            "collation_slider_value":f"""{presidential_table_ward_rep['query']}  select round(count(*)/(select count(*) from house_ward_table where house_id={constiuency_name})*100,2) as count1 from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
             "total_ward":f"""{presidential_table_ward_rep['query']} select count(*) AS count1 from house_ward_table where  house_id={constiuency_name} """ ,
             "collated":f"""{presidential_table_ward_rep['query']} select count(*) as count1 from house_ward_table where status='collated' and house_id={constiuency_name} """,
             "collated_table":f"""{presidential_table_ward_rep['query']} select lga_name,ward_name,remarks from wt where status='collated' and house_id={constiuency_name} """,
@@ -617,7 +617,7 @@ def lga_dashboard(type,constiuency_name):
  		if (count(*)=(select count(*) from house_lga_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) 
  		from house_lga_table where (status='collated' or status='canceled')	and house_id={constiuency_name}					
                     """,
-                        "collation_slider_value":f"""{presidential_table_lga_rep['query']}  select count(*) as count1 from house_lga_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
+                        "collation_slider_value":f"""{presidential_table_lga_rep['query']}  select round(count(*)/(select count(*) from house_lga_table where house_id={constiuency_name})*100,2) as count1 from house_lga_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
                         "total_lga":f"""{presidential_table_lga_rep['query']} select count(*) AS count1 from house_lga_table where house_id={constiuency_name} """ ,
                         "collated":f"""{presidential_table_lga_rep['query']} select count(*) as count1 from house_lga_table where status='collated' and house_id={constiuency_name} """,
                         "collated_table":f"""{presidential_table_lga_rep['query']} select lga_name,remarks from lgat where status='collated' and house_id={constiuency_name} """,
