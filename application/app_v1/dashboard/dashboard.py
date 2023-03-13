@@ -437,7 +437,7 @@ def ward_dashboard(type,constiuency_name):
  IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house 		
 where house_id={constiuency_name} """,
             "collation_slider_message":f"""{presidential_table_ward_rep['query']}  select if (count(*)=0 ,'collation not started', 
- 		if (count(*)=(select count(*) from house_ward_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) 
+ 		if (count(*)=(select count(*) from house_ward_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) as message
  		from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name}		
 		 """,
             "collation_slider_value":f"""{presidential_table_ward_rep['query']}  select round(count(*)/(select count(*) from house_ward_table where house_id={constiuency_name})*100,2) as count1 from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
@@ -614,7 +614,7 @@ def lga_dashboard(type,constiuency_name):
             IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house where house_id={constiuency_name}		
             """,
                         "collation_slider_message":f"""{presidential_table_lga_rep['query']}  select if (count(*)=0 ,'collation not started', 
- 		if (count(*)=(select count(*) from house_lga_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) 
+ 		if (count(*)=(select count(*) from house_lga_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) as message
  		from house_lga_table where (status='collated' or status='canceled')	and house_id={constiuency_name}					
                     """,
                         "collation_slider_value":f"""{presidential_table_lga_rep['query']}  select round(count(*)/(select count(*) from house_lga_table where house_id={constiuency_name})*100,2) as count1 from house_lga_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
