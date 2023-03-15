@@ -8,7 +8,7 @@ import json
 # lga results
 
 def get_ward_lga_all_results(country_name="undefined",state_name="undefined", lga_name="undefined",party_data={}):
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
     
         country_query = ""
@@ -56,7 +56,7 @@ def get_ward_lga_all_results(country_name="undefined",state_name="undefined", lg
 # state results
 
 def get_ward_state_all_results(country_name="undefined",state_name="undefined",party_data={}):
-      with get_db2() as conn:
+      with get_db() as conn:
         cur = conn.cursor()
 
          
@@ -105,7 +105,7 @@ def get_ward_state_all_results(country_name="undefined",state_name="undefined",p
 
 
 def get_ward_country_all_results(country_name,party_data={}):
-     with get_db2() as conn:
+     with get_db() as conn:
         cur = conn.cursor()
            
         country_query = ""     

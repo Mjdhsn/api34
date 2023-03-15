@@ -136,8 +136,10 @@ def getData_pu(country,state, lga, ward, pu):
             cur.execute(sql)
             row_headers = [x[0] for x in cur.description]
             results = cur.fetchall()
+            results =  {key.upper(): val for key, val in results[0].items()}
+
             # cur.close()
-            json_data = results
+            json_data = [results]
             return json_data
         except Exception as e:
             print(e)
@@ -184,9 +186,12 @@ def getData_ward(country,state, lga, ward):
             cur.execute(sql)
             row_headers = [x[0] for x in cur.description]
             results = cur.fetchall()
+            results =  {key.upper(): val for key, val in results[0].items()}
 
             # cur.close()
-            json_data = results
+            json_data = [results]
+
+            # cur.close()
             return json_data
         except Exception as e:
             print(e)
@@ -233,8 +238,10 @@ def getData_lga(country,state, lga):
             row_headers = [x[0] for x in cur.description]
             results = cur.fetchall()
         
+            results =  {key.upper(): val for key, val in results[0].items()}
+
             # cur.close()
-            json_data = results
+            json_data = [results]
             return json_data
         except Exception as e:
             print(e)
@@ -278,9 +285,10 @@ def getData_district(country,state, constituency):
         try:
             cur.execute(sql)
             row_headers = [x[0] for x in cur.description]
-            results = cur.fetchall()
+            results =  {key.upper(): val for key, val in results[0].items()}
+
             # cur.close()
-            json_data = results
+            json_data = [results]
             return json_data
         except Exception as e:
             print(e)
@@ -323,9 +331,10 @@ def getData_constituency(country,state, constituency):
         try:
             cur.execute(sql)
             row_headers = [x[0] for x in cur.description]
-            results = cur.fetchall()
+            results =  {key.upper(): val for key, val in results[0].items()}
+
             # cur.close()
-            json_data = results
+            json_data = [results]
             return json_data
         except Exception as e:
             print(e)

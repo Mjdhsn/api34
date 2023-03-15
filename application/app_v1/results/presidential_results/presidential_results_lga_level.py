@@ -11,7 +11,7 @@ import json
 # state results
 
 def get_lga_state_all_results(country_name="undefined",state_name="undefined",party_data={}):
-     with get_db2() as conn:
+     with get_db() as conn:
         cur = conn.cursor()
 
          
@@ -59,7 +59,7 @@ def get_lga_state_all_results(country_name="undefined",state_name="undefined",pa
 
 
 def get_lga_country_all_results(country_name,party_data={}):
-      with get_db2() as conn:
+      with get_db() as conn:
         cur = conn.cursor()
            
         country_query = ""     

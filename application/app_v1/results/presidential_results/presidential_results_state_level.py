@@ -8,7 +8,7 @@ import json
 
 
 def get_state_country_all_results(country_name,party_data={}):
-      with get_db2() as conn:
+      with get_db() as conn:
         cur = conn.cursor()
            
         country_query = ""     

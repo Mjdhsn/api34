@@ -13,15 +13,15 @@ conditions_pu = {
             "slider_gragh":f"""{presidential_table_pu['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
- IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_OTHERS FROM st		
+ IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
             "collation_slider_message":f"""{presidential_table_pu['query']} select if (count(*)=0 ,'collation not started', 
  		if (count(*)=11212, 'collation completed','collation in progress......')) as message 
  		from pu_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_pu['query']}  select round(count(*)/11212*100,2) as count1 from pu_result_table where (status='collated' or status='canceled') """,
+            "collation_slider_value":f"""{presidential_table_pu['query']}  select count(*) as count1 from pu_result_table where (status='collated' or status='canceled') """,
             "total_pu":f"""{presidential_table_pu['query']} select count(*) AS count1 from pu_result_table""" ,
             "collated":f"""{presidential_table_pu['query']} select count(*) as count1 from pu_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_pu['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='collated'""",
@@ -87,15 +87,15 @@ conditions_ward = {
             "slider_gragh":f"""{presidential_table_ward['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
- IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_OTHERS FROM st		
+ IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
             "collation_slider_message":f"""{presidential_table_ward['query']} select if (count(*)=0 ,'collation not started', 
  		if (count(*)=484, 'collation completed','collation in progress......')) as message 
  		from ward_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_ward['query']}  select round(count(*)/484*100,2) as count1 from ward_result_table where (status='collated' or status='canceled') """,
+            "collation_slider_value":f"""{presidential_table_ward['query']}  select count(*) as count1 from ward_result_table where (status='collated' or status='canceled') """,
             "total_ward":f"""{presidential_table_ward['query']} select count(*) AS count1 from ward_result_table""" ,
             "collated":f"""{presidential_table_ward['query']} select count(*) as count1 from ward_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_ward['query']} select lga_name,ward_name,remarks from wt where status='collated'""",
@@ -153,15 +153,15 @@ conditions_lga = {
             "slider_gragh":f"""{presidential_table_lga['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
- IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_OTHERS FROM st		
+ IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
             "collation_slider_message":f"""{presidential_table_lga['query']} select if (count(*)=0 ,'collation not started', 
  		if (count(*)=774, 'collation completed','collation in progress......')) as message 
  		from lga_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_lga['query']}  select round(count(*)/44*100,2) as count1 from lga_result_table where (status='collated' or status='canceled') """,
+            "collation_slider_value":f"""{presidential_table_lga['query']}  select count(*) as count1 from lga_result_table where (status='collated' or status='canceled') """,
             "total_lga":f"""{presidential_table_lga['query']} select count(*) AS count1 from lga_result_table""" ,
             "collated":f"""{presidential_table_lga['query']} select count(*) as count1 from lga_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_lga['query']} select lga_name,remarks from lgat where status='collated'""",
@@ -208,19 +208,19 @@ conditions_state = {
      
             "Registered Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(Total_Registered_voters),0) AS count1  FROM  state_result_table""",
             "Accredited Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(Total_Accredited_voters),0) AS count1  FROM  state_result_table""",
-            "Valid Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(total_vote_casted),0)  AS count1 FROM state_result_table  """,
+            "Valid Voters":f"""{presidential_table_state['query']} SELECT coalesce(sum(total_vote_casted),0)  AS count1 FROM  lgat """,
             "slider_gragh":f"""{presidential_table_state['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
- IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_OTHERS FROM st		
+ IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM st		
 """,
             "collation_slider_message":f"""{presidential_table_state['query']} select if (count(*)=0 ,'collation not started', 
  		if (count(*)=1, 'collation completed','collation in progress......'))  as message 
  		from state_result_table where (status='collated' or status='canceled')			
 		 """,
-            "collation_slider_value":f"""{presidential_table_state['query']}  select round(count(*)/1*100,2) as count1 from state_result_table where (status='collated' or status='canceled') """
+            "collation_slider_value":f"""{presidential_table_state['query']}  select count(*) as count1 from state_result_table where (status='collated' or status='canceled') """
          
             
 
@@ -241,15 +241,15 @@ def pollingunit_dashboard(type,constiuency_name):
             "slider_gragh":f"""{presidential_table_pu_rep['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
             APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
             PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
-            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
+            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
             (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
-            IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_OTHERS FROM house where house_id={constiuency_name}		
+            IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house where house_id={constiuency_name}		
             """ ,
                         "collation_slider_message":f"""{presidential_table_pu_rep['query']}  select if (count(*)=0 ,'collation not started', 
  		if (count(*)=(select count(*) from house_pu_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) as message
  		from house_pu_table where (status='collated' or status='canceled') and house_id={constiuency_name};			
                 """,
-                    "collation_slider_value":f"""{presidential_table_pu_rep['query']}   select round(count(*)/(select count(*) from house_pu_table where house_id={constiuency_name})*100,2) as count1 from house_pu_table where (status='collated' or status='canceled') and house_id={constiuency_name} 
+                    "collation_slider_value":f"""{presidential_table_pu_rep['query']}   select count(*) from house_pu_table where (status='collated' or status='canceled') and house_id=486 
  (slider range from 0 to 'select count(*) from house_pu_table where house_id={constiuency_name}') """,
                     "total_pu":f"""{presidential_table_pu_rep['query']} select count(*) AS count1 from house_pu_table where house_id={constiuency_name} """ ,
                     "collated":f"""{presidential_table_pu_rep['query']} select count(*) as count1 from house_pu_table where status='collated' and house_id={constiuency_name}""",
@@ -331,6 +331,7 @@ def pollingunit_dashboard(type,constiuency_name):
                                     cur.execute(sql)
                                     results = cur.fetchall()
                                     ress[key_values[index]] = results
+                                    print(key_values[index])
                                     
                                 except:
                                     print('Skipped a sceanrio')
@@ -429,18 +430,19 @@ def ward_dashboard(type,constiuency_name):
             "Registered Voters":f"""{presidential_table_ward_rep['query']} SELECT coalesce(sum(Total_Registered_voters),0) AS count1  FROM  house_ward_table where house_id={constiuency_name}""",
             "Accredited Voters":f"""{presidential_table_ward_rep['query']} SELECT coalesce(sum(Total_Accredited_voters),0) AS count1  FROM  house_ward_table where house_id={constiuency_name}""",
             "Valid Voters":f"""{presidential_table_ward_rep['query']} SELECT coalesce(sum(total_vote_casted),0)  AS count1 FROM  wt where house_id={constiuency_name} """,
-            "slider_gragh":f"""{presidential_table_ward_rep['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
+            "slider_gragh":f"""{presidential_table_ward_rep['query']}  SELECT 
+ NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
  APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
  PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
- ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
+ ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
  (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
- IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_OTHERS FROM house 		
+ IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house 		
 where house_id={constiuency_name} """,
             "collation_slider_message":f"""{presidential_table_ward_rep['query']}  select if (count(*)=0 ,'collation not started', 
- 		if (count(*)=(select count(*) from house_ward_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) as message
+ 		if (count(*)=(select count(*) from house_ward_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) 
  		from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name}		
 		 """,
-            "collation_slider_value":f"""{presidential_table_ward_rep['query']}  select round(count(*)/(select count(*) from house_ward_table where house_id={constiuency_name})*100,2) as count1 from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
+            "collation_slider_value":f"""{presidential_table_ward_rep['query']}  select count(*) as count1 from house_ward_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
             "total_ward":f"""{presidential_table_ward_rep['query']} select count(*) AS count1 from house_ward_table where  house_id={constiuency_name} """ ,
             "collated":f"""{presidential_table_ward_rep['query']} select count(*) as count1 from house_ward_table where status='collated' and house_id={constiuency_name} """,
             "collated_table":f"""{presidential_table_ward_rep['query']} select lga_name,ward_name,remarks from wt where status='collated' and house_id={constiuency_name} """,
@@ -589,6 +591,7 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuen
                     ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"ward_led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"lga_led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
                     ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"ward_led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"lga_led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
                     ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"ward_led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"lga_led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
+                    
                     del ress['scores'],ress['Wards_led_NNPP'],ress['Wards_led_NNPP_table'],ress["Lga's_led_NNPP"],ress["Lga's_led_NNPP_table"]
                     del ress['Wards_led_APC'],ress['Wards_led_APC_table'],ress["Lga's_led_APC"],ress["Lga's_led_APC_table"]
                     del ress['Wards_led_PDP'],ress['Wards_led_PDP_table'],ress["Lga's_led_PDP"],ress["Lga's_led_PDP_table"]
@@ -609,15 +612,15 @@ def lga_dashboard(type,constiuency_name):
             "slider_gragh":f"""{presidential_table_lga_rep['query']}  SELECT NNPP,  IF(total_vote_casted>0, concat(round(NNPP/total_vote_casted*100,2),'%'), '0.00%') as percentage_NNPP, 
             APC, IF(total_vote_casted>0, concat(round(APC/total_vote_casted*100,2),'%'), '0.00%') as percentage_APC,
             PDP, IF(total_vote_casted>0, concat(round(PDP/total_vote_casted*100,2),'%'), '0.00%') as percentage_PDP, 
-            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_ADP,
+            ADP, IF(total_vote_casted>0, concat(round(ADP/total_vote_casted*100,2),'%'), '0.00%') as percentage_LP,
             (A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP) AS OTHERS,
-            IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_OTHERS FROM house where house_id={constiuency_name}		
+            IF(total_vote_casted>0,concat(round((A + AA + ADP + APP + AAC + ADC  + APGA + APM + BP  + NRM + NNPP + PRP + SDP + YPP + ZLP)/total_vote_casted*100,2),'%'),'0.00%') as percentage_others FROM house where house_id={constiuency_name}		
             """,
                         "collation_slider_message":f"""{presidential_table_lga_rep['query']}  select if (count(*)=0 ,'collation not started', 
- 		if (count(*)=(select count(*) from house_lga_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) as message
+ 		if (count(*)=(select count(*) from house_lga_table where house_id={constiuency_name}), 'collation completed','collation in progress......')) 
  		from house_lga_table where (status='collated' or status='canceled')	and house_id={constiuency_name}					
                     """,
-                        "collation_slider_value":f"""{presidential_table_lga_rep['query']}  select round(count(*)/(select count(*) from house_lga_table where house_id={constiuency_name})*100,2) as count1 from house_lga_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
+                        "collation_slider_value":f"""{presidential_table_lga_rep['query']}  select count(*) as count1 from house_lga_table where (status='collated' or status='canceled') and house_id={constiuency_name} """,
                         "total_lga":f"""{presidential_table_lga_rep['query']} select count(*) AS count1 from house_lga_table where house_id={constiuency_name} """ ,
                         "collated":f"""{presidential_table_lga_rep['query']} select count(*) as count1 from house_lga_table where status='collated' and house_id={constiuency_name} """,
                         "collated_table":f"""{presidential_table_lga_rep['query']} select lga_name,remarks from lgat where status='collated' and house_id={constiuency_name} """,
@@ -853,7 +856,7 @@ def place(user):
         
         elif role == "pss":
                 
-                sql = f"""select distinct state_name from state_result_table Where state_id={state}  """
+                sql = f"""select distinct state_name from state_result_table Where country_id={country} and state_id={state}  """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -863,7 +866,7 @@ def place(user):
 
         elif role == "pls":
         
-                sql = f"""select distinct lga_name from lga_result_table Where  state_id={state} and lga_id={lga}  """
+                sql = f"""select distinct lga_name from lga_result_table Where country_id={country} and state_id={state} and lga_id={lga}  """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -873,7 +876,7 @@ def place(user):
         
         elif role == "pws":
         
-                sql = f"""select distinct ward_name from ward_result_table Where  state_id={state} and lga_id={lga} and ward_id ={ward} """
+                sql = f"""select distinct ward_name from ward_result_table Where country_id={country} and state_id={state} and lga_id={lga} and ward_id ={ward} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -883,7 +886,7 @@ def place(user):
         
         elif role == "ppa":
         
-                sql = f"""select distinct pu_name from pu_result_table Where  state_id={state} and lga_id={lga} and ward_id ={ward} and pu_id = {pollingUnit} """
+                sql = f"""select distinct pu_name from pu_result_table Where country_id={country} and state_id={state} and lga_id={lga} and ward_id ={ward} and pu_id = {pollingUnit} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()

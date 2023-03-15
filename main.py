@@ -339,12 +339,12 @@ def getBook_lga(country_name: int = 1,state_name: int = 19,lga_name: int = 1,cre
 #     return upload_data.getData_district(country_name,state_name, senate_district)  
 
 
-# '''...............constituencncy data for Informations page..................'''
-# @app.get('/getData_constituency',tags=["Informations"])
-# def getBook_constituency(country_name: int = 1,state_name: int = 19,constituency_name: int = 1,credentials: HTTPAuthorizationCredentials = Security(security)):
-#     if not credentials:
-#         raise HTTPException(status_code=401, detail='my-custom-details')
-#     return upload_data.getData_constituency(country_name,state_name, constituency_name)  
+'''...............constituencncy data for Informations page..................'''
+@app.get('/getData_constituency',tags=["Informations"])
+def getBook_constituency(country_name: int = 1,state_name: int = 19,constituency_name: int = 1,credentials: HTTPAuthorizationCredentials = Security(security)):
+    if not credentials:
+        raise HTTPException(status_code=401, detail='my-custom-details')
+    return upload_data.getData_constituency(country_name,state_name, constituency_name)  
 
 '''...............state data for Informations page..................'''
 
@@ -2278,13 +2278,12 @@ async def dashboardpu(constiuency_name:int= Body(...)):
  
     return dashboard.constituency_dashboard(constiuency_name)
 
+
 @app.post("/dashboard_state",tags=["Dashboard routes"])
 async def dashboardpu():
 
  
     return dashboard.state_dashboard()
-
-
 
 
 @app.post("/usermanagement_place",tags=["Dashboard routes"])
@@ -2429,5 +2428,4 @@ async def dashboardpu(user:dict= Body(...)):
 handler = Mangum(app=app)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0",  reload=True, access_log=False,port=5000)
-
+    uvicorn.run("main:app", host="0.0.0.0",  reload=True, access_log=False,port=9000)
