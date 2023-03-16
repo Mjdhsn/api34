@@ -1058,15 +1058,15 @@ async def presidential_results_lga_state_result(country_name: int = 1,state_name
 # State
 
 
-# @app.post("/presidentialresults_state/country", tags=["Presidential State results"])
-# async def presidential_results_state_country_result(country_name: int = 1,credentials: HTTPAuthorizationCredentials = Security(security)):
-#     '''
+@app.post("/presidentialresults_state/country", tags=["Presidential State results"])
+async def presidential_results_state_country_result(country_name: int = 1,credentials: HTTPAuthorizationCredentials = Security(security)):
+    '''
 
-#      Input request data - party check box data for example {"1":"ADC","2":"NNPP"}
-#     '''
-#     if not credentials:
-#         raise HTTPException(status_code=401, detail='my-custom-details')
-#     return presidential_results_state_level.get_state_country_all_results(country_name)
+     Input request data - party check box data for example {"1":"ADC","2":"NNPP"}
+    '''
+    if not credentials:
+        raise HTTPException(status_code=401, detail='my-custom-details')
+    return presidential_results_state_level.get_state_country_all_results(country_name)
 
 # # Country 
 # @app.post("/presidentialresults_country/country", tags=["Presidential Country results"])
@@ -1216,7 +1216,7 @@ async def rep_results_polling_lga_result(country_name: int = 1,state_name: int =
 
 
 
-@app.post("/represults_polling/district",tags=["rep Polling Unit results"])
+@app.post("/represults_polling/constituency",tags=["rep Polling Unit results"])
 async def rep_results_polling_country_result(country_name: int = 1,state_name: int = 19,constituency_name: int = 1,credentials: HTTPAuthorizationCredentials = Security(security)):
     '''
      
@@ -1244,7 +1244,7 @@ async def rep_results_ward_lga_result(country_name: int = 1,state_name: int = 19
     return rep_results_ward_level.get_ward_lga_all_results(country_name,state_name,constituency_name,lga_name)
 
 
-@app.post("/represults_ward/district",tags=["rep Ward results"])
+@app.post("/represults_ward/constituency",tags=["rep Ward results"])
 async def rep_results_ward_country_result(country_name: int = 1,state_name: int = 19,constituency_name: int = 1,credentials: HTTPAuthorizationCredentials = Security(security)):
     '''     
      Input request data - party check box data for example {"1":"ADC","2":"NNPP"}
@@ -1260,7 +1260,7 @@ async def rep_results_ward_country_result(country_name: int = 1,state_name: int 
 
 
 
-@app.post("/represults_lga/district", tags=["rep LGA results"])
+@app.post("/represults_lga/constituency", tags=["rep LGA results"])
 async def rep_results_lga_country_result(country_name: int = 1,state_name: int = 19,constituency_name: int = 1,credentials: HTTPAuthorizationCredentials = Security(security)):
 
     '''

@@ -31,8 +31,8 @@ def get_state_state_all_results(country_name="undefined",state_name="undefined",
        
     
 
-        state_result = f"""{presidential_table_state['query']}   select constituency_name,  NNPP, APC,  PDP,   LP, AA,  AAC, ADC,  A,  ADP,   APGA,  APM,  APP,  BP,  NRM,  PRP,  SDP,  YPP,  ZLP, 
-     	  Total_Registered_voters,  total_valid_votes_c AS total_valid_votes, Total_Rejected_votes, total_votes_cast_c AS total_vote_casted FROM rept where 1=1 {state_query} ORDER BY house_id """
+        state_result = f"""{presidential_table_state['query']}   select house_name,  NNPP, APC,  PDP,   LP, AA,  AAC, ADC,  A,  ADP,   APGA,  APM,  APP,  BP,  NRM,  PRP,  SDP,  YPP,  ZLP, 
+     	  Total_Registered_voters,  total_valid_votes_c AS total_valid_votes, Total_Rejected_votes, total_votes_cast_c AS total_vote_casted FROM house where 1=1 {state_query} ORDER BY house_id """
 
         key_values = []
         execute_queries = []

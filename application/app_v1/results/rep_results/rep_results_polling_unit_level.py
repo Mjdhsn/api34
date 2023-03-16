@@ -133,8 +133,8 @@ def get_polling_state_all_results(country_name="undefined",state_name="undefined
        
      
 
-        state_result = f"""{presidential_table_pu['query']}  select constituency_name,  NNPP, APC,  PDP,   LP, AA,  AAC, ADC,  A,  ADP,   APGA,  APM,  APP,  BP,  NRM,  PRP,  SDP,  YPP,  ZLP, 
-   		 Total_Registered_voters,  total_valid_votes, Total_Rejected_votes, total_vote_casted  from rept where 1=1 {state_query} {constituency_query}"""
+        state_result = f"""{presidential_table_pu['query']}  select house_name,  NNPP, APC,  PDP,   LP, AA,  AAC, ADC,  A,  ADP,   APGA,  APM,  APP,  BP,  NRM,  PRP,  SDP,  YPP,  ZLP, 
+   		 Total_Registered_voters,  total_valid_votes, Total_Rejected_votes, total_vote_casted  from house where 1=1 {state_query} {constituency_query}"""
         pu_result = f"""{presidential_table_pu['query']} select lga_name,  NNPP, APC,  PDP,   LP, AA,  AAC, ADC,  A,  ADP,   APGA,  APM,  APP,  BP,  NRM,  PRP,  SDP,  YPP,  ZLP, 
   		 Total_Registered_voters,  total_valid_votes, Total_Rejected_votes, total_vote_casted from lgat where 1=1 {state_query} {constituency_query} order by lga_id """
         key_values = []
