@@ -344,7 +344,7 @@ def pollingunit_dashboard(type,constiuency_name):
                         ress['table1']['non-collated']['value'] = ress['non-collated'][0]['count1']
                         del ress['non-collated'][0]['count1']
                         ress['table1']['non-collated']['table'] = ress['non-collated_table']
-                        del ress['non-collated']
+                        del ress['non-collated_table']
                         ress['table1']['cancelled']['value'] = ress['cancelled'][0]['count1']
                         del ress['cancelled'][0]['count1']
                         ress['table1']['cancelled']['table'] = ress['cancelled_table']
@@ -354,7 +354,7 @@ def pollingunit_dashboard(type,constiuency_name):
                         ress['table1']['over-voting']['table'] = ress['over-voting_table']
                         ress['table1']['Total Polling Units']['value'] = ress['total_pu']
 
-                        del ress['over-voting'],ress['total_pu'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                        del ress['over-voting'],ress['total_pu'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
                         ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"pu_win":ress['PU_won_NNPP'],"pu_win_table":ress['PU_won_NNPP_table'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -403,7 +403,7 @@ def pollingunit_dashboard(type,constiuency_name):
                     ress['table1']['over-voting']['table'] = ress['over-voting_table']
                     ress['table1']['Total Polling Units']['value'] = ress['total_pu']
 
-                    del ress['over-voting'],ress['total_pu'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                    del ress['over-voting'],ress['total_pu'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
                     ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"pu_win":ress['PU_won_NNPP'],"pu_win_table":ress['PU_won_NNPP_table'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -531,7 +531,7 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuen
                         ress['table1']['over-voting']['table'] = ress['over-voting_table']
                         ress['table1']['Total Wards']['value'] = ress['total_ward']
 
-                        del ress['over-voting_table'],ress['total_ward'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                        del ress['over-voting'],ress['total_ward'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
                         ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -582,7 +582,7 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuen
                     ress['table1']['over-voting']['table'] = ress['over-voting_table']
                     ress['table1']['Total Wards']['value'] = ress['total_ward']
 
-                    del ress['over-voting_table'],ress['total_ward'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                    del ress['over-voting'],ress['total_ward'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
                     ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -706,7 +706,7 @@ def lga_dashboard(type,constiuency_name):
                         ress['table1']['over-voting']['table'] = ress['over-voting_table']
                         ress['table1']['Total Lgas']['value'] = ress['total_lga']
 
-                        del ress['over-voting_table'],ress['total_lga'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                        del ress['over-voting'],ress['total_lga'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
                         ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -756,7 +756,7 @@ def lga_dashboard(type,constiuency_name):
                     ress['table1']['over-voting']['table'] = ress['over-voting_table']
                     ress['table1']['Total Lgas']['value'] = ress['total_lga']
 
-                    del ress['over-voting_table'],ress['total_lga'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                    del ress['over-voting'],ress['total_lga'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
                     ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
