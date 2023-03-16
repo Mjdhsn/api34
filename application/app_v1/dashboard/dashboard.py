@@ -381,7 +381,6 @@ def pollingunit_dashboard(type,constiuency_name):
                                 cur.execute(sql)
                                 results = cur.fetchall()
                                 ress[key_values[index]] = results
-                                print(key_values[index])
                                 
                             except:
                                 print('Skipped a sceanrio')
