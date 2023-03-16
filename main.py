@@ -2290,6 +2290,7 @@ import json
 async def dashboardpu(user:dict= Body(...)):
 
     user = json.dumps(user)
+    print(user)
     return dashboard.place(user)
 
 
