@@ -2232,6 +2232,7 @@ def mlprediction(urlkey: str= None,credentials: HTTPAuthorizationCredentials = S
     """
     resp = requests.post(url, headers=headers, data=data)
     resp = resp.json()
+    return {"dummy":"0"}
     v = resp['data'][0]['matches']
     outputlabel = v[0]['text']
     outputscore = v[0]['scores']['clip_score']['value']
