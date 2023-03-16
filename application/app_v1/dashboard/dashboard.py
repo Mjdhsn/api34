@@ -846,7 +846,7 @@ def place(user):
 
         if role == "pns":
                 
-                sql = f"""select distinct country_name from country_result_table Where country_id = {country} """
+                sql = f"""select distinct country_name from country_result_table """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -856,7 +856,7 @@ def place(user):
         
         elif role == "pss":
                 
-                sql = f"""select distinct state_name from state_result_table Where country_id={country} and state_id={state}  """
+                sql = f"""select distinct state_name from state_result_table Where  state_id={state}  """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -866,7 +866,7 @@ def place(user):
 
         elif role == "pls":
         
-                sql = f"""select distinct lga_name from lga_result_table Where country_id={country} and state_id={state} and lga_id={lga}  """
+                sql = f"""select distinct lga_name from lga_result_table Where state_id={state} and lga_id={lga}  """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -876,7 +876,7 @@ def place(user):
         
         elif role == "pws":
         
-                sql = f"""select distinct ward_name from ward_result_table Where country_id={country} and state_id={state} and lga_id={lga} and ward_id ={ward} """
+                sql = f"""select distinct ward_name from ward_result_table Where  state_id={state} and lga_id={lga} and ward_id ={ward} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -886,7 +886,7 @@ def place(user):
         
         elif role == "ppa":
         
-                sql = f"""select distinct pu_name from pu_result_table Where country_id={country} and state_id={state} and lga_id={lga} and ward_id ={ward} and pu_id = {pollingUnit} """
+                sql = f"""select distinct pu_name from pu_result_table Where  state_id={state} and lga_id={lga} and ward_id ={ward} and pu_id = {pollingUnit} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -919,7 +919,7 @@ def place(user):
 
         elif role == "rss":
         
-                sql = f"""select distinct state_name from rep_constituency_table Where state_id = {state} """
+                sql = f"""select distinct state_name from house_table Where state_id = {state} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -930,7 +930,7 @@ def place(user):
         elif role == "rcs":
                 constituency = user['constituency']
         
-                sql = f"""select distinct constituency_name from rep_constituency_table Where state_id={state} and const_id = {constituency} """
+                sql = f"""select distinct house_name from house_table Where state_id={state} and house_id = {constituency} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
