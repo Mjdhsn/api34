@@ -1,6 +1,6 @@
 
-from app.application.app_v1.database import get_db,get_db2
-from app.application.app_v1.analysis.presidential_analysis.tab3.party_table import pu_query
+from application.app_v1.database import get_db,get_db2
+from application.app_v1.analysis.presidential_analysis.tab3.party_table import pu_query
 
 import json
 

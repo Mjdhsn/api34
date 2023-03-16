@@ -1,4 +1,4 @@
-from app.application.app_v1.analysis.presidential_analysis.tab2.schema import *
+from application.app_v1.analysis.presidential_analysis.tab2.schema import *
 
 
 pu_query_tables = {

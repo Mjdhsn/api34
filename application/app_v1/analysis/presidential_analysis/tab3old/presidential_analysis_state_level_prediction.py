@@ -1,6 +1,6 @@
 
-from app.application.app_v1.database import get_db
-from app.application.app_v1.analysis.presidential_analysis.tab3.party_table import state_query
+from application.app_v1.database import get_db
+from application.app_v1.analysis.presidential_analysis.tab3.party_table import state_query
 
 
 table_list = ["total_over_voting_table"]
