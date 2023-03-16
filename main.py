@@ -2289,7 +2289,7 @@ async def dashboardpu():
 @app.post("/usermanagement_place",tags=["Dashboard routes"])
 async def dashboardpu(user:dict= Body(...)):
 
- 
+    print(user)
     return dashboard.place(user)
 
 
