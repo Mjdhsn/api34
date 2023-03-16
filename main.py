@@ -2285,11 +2285,11 @@ async def dashboardpu():
  
     return dashboard.state_dashboard()
 
-
+import json
 @app.post("/usermanagement_place",tags=["Dashboard routes"])
 async def dashboardpu(user:dict= Body(...)):
 
-    print(user)
+    user = json.dumps(user)
     return dashboard.place(user)
 
 
