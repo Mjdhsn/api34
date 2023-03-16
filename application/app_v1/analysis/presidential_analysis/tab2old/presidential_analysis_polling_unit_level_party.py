@@ -1,7 +1,7 @@
 
-from application.app_v1.database import get_db,get_db2
-from application.app_v1.analysis.presidential_analysis.tab2.schema import ward_query,lga_query,state_query,country_query
-from application.app_v1.analysis.presidential_analysis.tab2.schema2 import pu_query
+from app.application.app_v1.database import get_db,get_db2
+from app.application.app_v1.analysis.presidential_analysis.tab2.schema import ward_query,lga_query,state_query,country_query
+from app.application.app_v1.analysis.presidential_analysis.tab2.schema2 import pu_query
 
 state_name= None
 lga_name = None 

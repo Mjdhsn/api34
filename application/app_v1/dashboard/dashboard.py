@@ -1,8 +1,8 @@
-from application.app_v1.database import get_db,get_db2
+from app.application.app_v1.database import get_db,get_db2
 from datetime import datetime
 from datetime import datetime
 import json
-from application.app_v1.dashboard.party_table import presidential_table_pu,presidential_table_pu_rep,presidential_table_ward,presidential_table_lga,presidential_table_state,presidential_table_const_rep,presidential_table_lga_rep,presidential_table_ward_rep
+from app.application.app_v1.dashboard.party_table import presidential_table_pu,presidential_table_pu_rep,presidential_table_ward,presidential_table_lga,presidential_table_state,presidential_table_const_rep,presidential_table_lga_rep,presidential_table_ward_rep
 
 
 conditions_pu = {
@@ -25,7 +25,7 @@ conditions_pu = {
             "total_pu":f"""{presidential_table_pu['query']} select count(*) AS count1 from pu_result_table""" ,
             "collated":f"""{presidential_table_pu['query']} select count(*) as count1 from pu_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_pu['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='collated'""",
-            "non-Collated":f"""{presidential_table_pu['query']} select count(*) as count1 from pu_result_table where status='non collated'""",
+            "non-collated":f"""{presidential_table_pu['query']} select count(*) as count1 from pu_result_table where status='non collated'""",
             "non-collated_table":f"""{presidential_table_pu['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='non collated'""",
             "cancelled":f"""{presidential_table_pu['query']} select count(*) as count1 from pu where status='canceled'""",
             "cancelled_table":f"""{presidential_table_pu['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='canceled'""",
@@ -99,7 +99,7 @@ conditions_ward = {
             "total_ward":f"""{presidential_table_ward['query']} select count(*) AS count1 from ward_result_table""" ,
             "collated":f"""{presidential_table_ward['query']} select count(*) as count1 from ward_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_ward['query']} select lga_name,ward_name,remarks from wt where status='collated'""",
-            "non-Collated":f"""{presidential_table_ward['query']} select count(*) as count1 from ward_result_table where status='non collated'""",
+            "non-collated":f"""{presidential_table_ward['query']} select count(*) as count1 from ward_result_table where status='non collated'""",
             "non-collated_table":f"""{presidential_table_ward['query']} select lga_name,ward_name,remarks from wt where status='non collated'""",
             "cancelled":f"""{presidential_table_ward['query']} select count(*) as count1 from wt where status='canceled'""",
             "cancelled_table":f"""{presidential_table_ward['query']} select lga_name,ward_name,remarks from wt where status='canceled'""",
@@ -165,7 +165,7 @@ conditions_lga = {
             "total_lga":f"""{presidential_table_lga['query']} select count(*) AS count1 from lga_result_table""" ,
             "collated":f"""{presidential_table_lga['query']} select count(*) as count1 from lga_result_table where status='collated'""",
             "collated_table":f"""{presidential_table_lga['query']} select lga_name,remarks from lgat where status='collated'""",
-            "non-Collated":f"""{presidential_table_lga['query']} select count(*) as count1 from lga_result_table where status='non collated'""",
+            "non-collated":f"""{presidential_table_lga['query']} select count(*) as count1 from lga_result_table where status='non collated'""",
             "non-collated_table":f"""{presidential_table_lga['query']} select lga_name,remarks from lgat where status='non collated'""",
             "cancelled":f"""{presidential_table_lga['query']} select count(*) as count1 from lgat where status='canceled'""",
             "cancelled_table":f"""{presidential_table_lga['query']} select lga_name,remarks from lgat where status='canceled'""",
@@ -254,7 +254,7 @@ def pollingunit_dashboard(type,constiuency_name):
                     "total_pu":f"""{presidential_table_pu_rep['query']} select count(*) AS count1 from house_pu_table where house_id={constiuency_name} """ ,
                     "collated":f"""{presidential_table_pu_rep['query']} select count(*) as count1 from house_pu_table where status='collated' and house_id={constiuency_name}""",
                     "collated_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='collated' and house_id={constiuency_name} """,
-                    "non-Collated":f"""{presidential_table_pu_rep['query']} select count(*) as count1 from house_pu_table where status='non collated' and house_id={constiuency_name} """,
+                    "non-collated":f"""{presidential_table_pu_rep['query']} select count(*) as count1 from house_pu_table where status='non collated' and house_id={constiuency_name} """,
                     "non-collated_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='non collated' and house_id={constiuency_name} """,
                     "cancelled":f"""{presidential_table_pu_rep['query']} select count(*) as count1 from pu where status='canceled' and house_id={constiuency_name} """,
                     "cancelled_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code,pu_name,remarks from pu where status='canceled' and house_id={constiuency_name} """,
@@ -341,17 +341,17 @@ def pollingunit_dashboard(type,constiuency_name):
                         del ress['collated'][0]['count1']
                         ress['table1']['collated']['table'] = ress['collated_table']
                         del ress['collated_table']
-                        ress['table1']['non-collated']['value'] = ress['non-Collated'][0]['count1']
-                        del ress['non-Collated'][0]['count1']
-                        ress['table1']['non-collated']['table'] = ress['non-Collated']
-                        del ress['non-Collated']
+                        ress['table1']['non-collated']['value'] = ress['non-collated'][0]['count1']
+                        del ress['non-collated'][0]['count1']
+                        ress['table1']['non-collated']['table'] = ress['non-collated_table']
+                        del ress['non-collated']
                         ress['table1']['cancelled']['value'] = ress['cancelled'][0]['count1']
                         del ress['cancelled'][0]['count1']
                         ress['table1']['cancelled']['table'] = ress['cancelled_table']
                         del ress['cancelled_table']
                         ress['table1']['over-voting']['value'] = ress['over-voting'][0]['count1']
                         del ress['over-voting'][0]['count1']
-                        ress['table1']['over-voting']['table'] = ress['over-voting']
+                        ress['table1']['over-voting']['table'] = ress['over-voting_table']
                         ress['table1']['Total Polling Units']['value'] = ress['total_pu']
 
                         del ress['over-voting'],ress['total_pu'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
@@ -366,7 +366,6 @@ def pollingunit_dashboard(type,constiuency_name):
                         del ress['PU_won_PDP'],ress['PU_won_PDP_table'],ress['Wards_led_PDP'],ress['Wards_led_PDP_table'],ress["Lga's_led_PDP"],ress["Lga's_led_PDP_table"]
                         del ress['PU_won_ADP'],ress['PU_won_ADP_table'],ress['Wards_led_ADP'],ress['Wards_led_ADP_table'],ress["Lga's_led_ADP"],ress["Lga's_led_ADP_table"]
 
-                        
                         return ress
                         
                                   
@@ -386,23 +385,22 @@ def pollingunit_dashboard(type,constiuency_name):
                                 
                             except:
                                 print('Skipped a sceanrio')
-
                     ress['table1'] ={"Total Polling Units":{},"collated":{},"non-collated":{},"cancelled":{},"over-voting":{}}
                     ress['table1']['collated']['value'] = ress['collated'][0]['count1']
                     del ress['collated'][0]['count1']
                     ress['table1']['collated']['table'] = ress['collated_table']
                     del ress['collated_table']
-                    ress['table1']['non-collated']['value'] = ress['non-Collated'][0]['count1']
-                    del ress['non-Collated'][0]['count1']
-                    ress['table1']['non-collated']['table'] = ress['non-Collated']
-                    del ress['non-Collated']
+                    ress['table1']['non-collated']['value'] = ress['non-collated'][0]['count1']
+                    del ress['non-collated'][0]['count1']
+                    ress['table1']['non-collated']['table'] = ress['non-collated_table']
+                    del ress['non-collated_table']
                     ress['table1']['cancelled']['value'] = ress['cancelled'][0]['count1']
                     del ress['cancelled'][0]['count1']
                     ress['table1']['cancelled']['table'] = ress['cancelled_table']
                     del ress['cancelled_table']
                     ress['table1']['over-voting']['value'] = ress['over-voting'][0]['count1']
                     del ress['over-voting'][0]['count1']
-                    ress['table1']['over-voting']['table'] = ress['over-voting']
+                    ress['table1']['over-voting']['table'] = ress['over-voting_table']
                     ress['table1']['Total Polling Units']['value'] = ress['total_pu']
 
                     del ress['over-voting'],ress['total_pu'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
@@ -446,7 +444,7 @@ where house_id={constiuency_name} """,
             "total_ward":f"""{presidential_table_ward_rep['query']} select count(*) AS count1 from house_ward_table where  house_id={constiuency_name} """ ,
             "collated":f"""{presidential_table_ward_rep['query']} select count(*) as count1 from house_ward_table where status='collated' and house_id={constiuency_name} """,
             "collated_table":f"""{presidential_table_ward_rep['query']} select lga_name,ward_name,remarks from wt where status='collated' and house_id={constiuency_name} """,
-            "non-Collated":f"""{presidential_table_ward_rep['query']} select count(*) as count1 from house_ward_table where status='non collated' and house_id={constiuency_name} """,
+            "non-collated":f"""{presidential_table_ward_rep['query']} select count(*) as count1 from house_ward_table where status='non collated' and house_id={constiuency_name} """,
             "non-collated_table":f"""{presidential_table_ward_rep['query']} select lga_name,ward_name,remarks from wt where status='non collated' and house_id={constiuency_name} """,
             "cancelled":f"""{presidential_table_ward_rep['query']} select count(*) as count1 from wt where status='canceled' and house_id={constiuency_name} """,
             "cancelled_table":f"""{presidential_table_ward_rep['query']} select lga_name,ward_name,remarks from wt where status='canceled' and house_id={constiuency_name} """,
@@ -520,20 +518,20 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuen
                         del ress['collated'][0]['count1']
                         ress['table1']['collated']['table'] = ress['collated_table']
                         del ress['collated_table']
-                        ress['table1']['non-collated']['value'] = ress['non-Collated'][0]['count1']
-                        del ress['non-Collated'][0]['count1']
-                        ress['table1']['non-collated']['table'] = ress['non-Collated']
-                        del ress['non-Collated']
+                        ress['table1']['non-collated']['value'] = ress['non-collated'][0]['count1']
+                        del ress['non-collated'][0]['count1']
+                        ress['table1']['non-collated']['table'] = ress['non-collated_table']
+                        del ress['non-collated_table']
                         ress['table1']['cancelled']['value'] = ress['cancelled'][0]['count1']
                         del ress['cancelled'][0]['count1']
                         ress['table1']['cancelled']['table'] = ress['cancelled_table']
                         del ress['cancelled_table']
                         ress['table1']['over-voting']['value'] = ress['over-voting'][0]['count1']
                         del ress['over-voting'][0]['count1']
-                        ress['table1']['over-voting']['table'] = ress['over-voting']
+                        ress['table1']['over-voting']['table'] = ress['over-voting_table']
                         ress['table1']['Total Wards']['value'] = ress['total_ward']
 
-                        del ress['over-voting'],ress['total_ward'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                        del ress['over-voting_table'],ress['total_ward'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
                         ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -571,20 +569,20 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuen
                     del ress['collated'][0]['count1']
                     ress['table1']['collated']['table'] = ress['collated_table']
                     del ress['collated_table']
-                    ress['table1']['non-collated']['value'] = ress['non-Collated'][0]['count1']
-                    del ress['non-Collated'][0]['count1']
-                    ress['table1']['non-collated']['table'] = ress['non-Collated']
-                    del ress['non-Collated']
+                    ress['table1']['non-collated']['value'] = ress['non-collated'][0]['count1']
+                    del ress['non-collated'][0]['count1']
+                    ress['table1']['non-collated']['table'] = ress['non-collated_table']
+                    del ress['non-collated_table']
                     ress['table1']['cancelled']['value'] = ress['cancelled'][0]['count1']
                     del ress['cancelled'][0]['count1']
                     ress['table1']['cancelled']['table'] = ress['cancelled_table']
                     del ress['cancelled_table']
                     ress['table1']['over-voting']['value'] = ress['over-voting'][0]['count1']
                     del ress['over-voting'][0]['count1']
-                    ress['table1']['over-voting']['table'] = ress['over-voting']
+                    ress['table1']['over-voting']['table'] = ress['over-voting_table']
                     ress['table1']['Total Wards']['value'] = ress['total_ward']
 
-                    del ress['over-voting'],ress['total_ward'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                    del ress['over-voting_table'],ress['total_ward'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
                     ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -624,7 +622,7 @@ def lga_dashboard(type,constiuency_name):
                         "total_lga":f"""{presidential_table_lga_rep['query']} select count(*) AS count1 from house_lga_table where house_id={constiuency_name} """ ,
                         "collated":f"""{presidential_table_lga_rep['query']} select count(*) as count1 from house_lga_table where status='collated' and house_id={constiuency_name} """,
                         "collated_table":f"""{presidential_table_lga_rep['query']} select lga_name,remarks from lgat where status='collated' and house_id={constiuency_name} """,
-                        "non-Collated":f"""{presidential_table_lga_rep['query']} select count(*) as count1 from house_lga_table where status='non collated' and house_id={constiuency_name} """,
+                        "non-collated":f"""{presidential_table_lga_rep['query']} select count(*) as count1 from house_lga_table where status='non collated' and house_id={constiuency_name} """,
                         "non-collated_table":f"""{presidential_table_lga_rep['query']} select lga_name,remarks from lgat where status='non collated' and house_id={constiuency_name} """,
                         "cancelled":f"""{presidential_table_lga_rep['query']} select count(*) as count1 from lgat where status='canceled' and house_id={constiuency_name} """,
                         "cancelled_table":f"""{presidential_table_lga_rep['query']} select lga_name,remarks from lgat where status='canceled' and house_id={constiuency_name} """,
@@ -695,20 +693,20 @@ def lga_dashboard(type,constiuency_name):
                         del ress['collated'][0]['count1']
                         ress['table1']['collated']['table'] = ress['collated_table']
                         del ress['collated_table']
-                        ress['table1']['non-collated']['value'] = ress['non-Collated'][0]['count1']
-                        del ress['non-Collated'][0]['count1']
-                        ress['table1']['non-collated']['table'] = ress['non-Collated']
-                        del ress['non-Collated']
+                        ress['table1']['non-collated']['value'] = ress['non-collated'][0]['count1']
+                        del ress['non-collated'][0]['count1']
+                        ress['table1']['non-collated']['table'] = ress['non-collated_table']
+                        del ress['non-collated_table']
                         ress['table1']['cancelled']['value'] = ress['cancelled'][0]['count1']
                         del ress['cancelled'][0]['count1']
                         ress['table1']['cancelled']['table'] = ress['cancelled_table']
                         del ress['cancelled_table']
                         ress['table1']['over-voting']['value'] = ress['over-voting'][0]['count1']
                         del ress['over-voting'][0]['count1']
-                        ress['table1']['over-voting']['table'] = ress['over-voting']
+                        ress['table1']['over-voting']['table'] = ress['over-voting_table']
                         ress['table1']['Total Lgas']['value'] = ress['total_lga']
 
-                        del ress['over-voting'],ress['total_lga'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                        del ress['over-voting_table'],ress['total_lga'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
                         ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -745,20 +743,20 @@ def lga_dashboard(type,constiuency_name):
                     del ress['collated'][0]['count1']
                     ress['table1']['collated']['table'] = ress['collated_table']
                     del ress['collated_table']
-                    ress['table1']['non-collated']['value'] = ress['non-Collated'][0]['count1']
-                    del ress['non-Collated'][0]['count1']
-                    ress['table1']['non-collated']['table'] = ress['non-Collated']
-                    del ress['non-Collated']
+                    ress['table1']['non-collated']['value'] = ress['non-collated'][0]['count1']
+                    del ress['non-collated'][0]['count1']
+                    ress['table1']['non-collated']['table'] = ress['non-collated_table']
+                    del ress['non-collated_table']
                     ress['table1']['cancelled']['value'] = ress['cancelled'][0]['count1']
                     del ress['cancelled'][0]['count1']
                     ress['table1']['cancelled']['table'] = ress['cancelled_table']
                     del ress['cancelled_table']
                     ress['table1']['over-voting']['value'] = ress['over-voting'][0]['count1']
                     del ress['over-voting'][0]['count1']
-                    ress['table1']['over-voting']['table'] = ress['over-voting']
+                    ress['table1']['over-voting']['table'] = ress['over-voting_table']
                     ress['table1']['Total Lgas']['value'] = ress['total_lga']
 
-                    del ress['over-voting'],ress['total_lga'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
+                    del ress['over-voting_table'],ress['total_lga'],ress['collated'],ress['non-collated_table'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
                     ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
@@ -846,7 +844,7 @@ def place(user):
 
         if role == "pns":
                 
-                sql = f"""select distinct country_name from country_result_table """
+                sql = f"""select distinct country_name from country_result_table Where country_id = {country} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -856,7 +854,7 @@ def place(user):
         
         elif role == "pss":
                 
-                sql = f"""select distinct state_name from state_result_table Where  state_id={state}  """
+                sql = f"""select distinct state_name from state_result_table Where country_id={country} and state_id={state}  """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -866,7 +864,7 @@ def place(user):
 
         elif role == "pls":
         
-                sql = f"""select distinct lga_name from lga_result_table Where state_id={state} and lga_id={lga}  """
+                sql = f"""select distinct lga_name from lga_result_table Where country_id={country} and state_id={state} and lga_id={lga}  """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -876,7 +874,7 @@ def place(user):
         
         elif role == "pws":
         
-                sql = f"""select distinct ward_name from ward_result_table Where  state_id={state} and lga_id={lga} and ward_id ={ward} """
+                sql = f"""select distinct ward_name from ward_result_table Where country_id={country} and state_id={state} and lga_id={lga} and ward_id ={ward} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -886,7 +884,7 @@ def place(user):
         
         elif role == "ppa":
         
-                sql = f"""select distinct pu_name from pu_result_table Where  state_id={state} and lga_id={lga} and ward_id ={ward} and pu_id = {pollingUnit} """
+                sql = f"""select distinct pu_name from pu_result_table Where country_id={country} and state_id={state} and lga_id={lga} and ward_id ={ward} and pu_id = {pollingUnit} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -919,7 +917,7 @@ def place(user):
 
         elif role == "rss":
         
-                sql = f"""select distinct state_name from house_table Where state_id = {state} """
+                sql = f"""select distinct state_name from rep_constituency_table Where state_id = {state} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()
@@ -930,7 +928,7 @@ def place(user):
         elif role == "rcs":
                 constituency = user['constituency']
         
-                sql = f"""select distinct house_name from house_table Where state_id={state} and house_id = {constituency} """
+                sql = f"""select distinct constituency_name from rep_constituency_table Where state_id={state} and const_id = {constituency} """
                 try:
                     cur.execute(sql)
                     results = cur.fetchall()

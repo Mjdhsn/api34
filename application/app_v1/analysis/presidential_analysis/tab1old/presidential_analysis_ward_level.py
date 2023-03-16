@@ -1,6 +1,6 @@
-from application.app_v1.database import get_db
+from app.application.app_v1.database import get_db
 
-from application.app_v1.analysis.presidential_analysis.tab1_copy.party_table import presidential_table
+from app.application.app_v1.analysis.presidential_analysis.tab1_copy.party_table import presidential_table
 
 
 

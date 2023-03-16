@@ -1,6 +1,6 @@
 
-from application.app_v1.database import get_db
-from application.app_v1.analysis.presidential_analysis.tab3.party_table import country_query
+from app.application.app_v1.database import get_db
+from app.application.app_v1.analysis.presidential_analysis.tab3.party_table import country_query
 
 
 

@@ -9,31 +9,31 @@ from fastapi.middleware.cors import CORSMiddleware
 import json, requests
 from fastapi import FastAPI, Request
 from typing import Optional
-from application.app_v1.model import UserLoginSchema
+from app.application.app_v1.model import UserLoginSchema
 
 from fastapi import File, UploadFile
-from application.app_v1.model import Model
+from app.application.app_v1.model import Model
 import uvicorn
 from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from application.app_v1.collation.presidential_collation import country,state,lga,ward,polling_unit
-from application.app_v1.mobile import mobile,upload_data
-from application.app_v1.results.presidential_results import presidential_results_polling_unit_level,presidential_results_ward_level,presidential_results_lga_level,presidential_results_state_level,presidential_results_country_level
-from application.app_v1.analysis.presidential_analysis.tab1 import presidential_analysis_polling_unit_level,presidential_analysis_ward_level,presidential_analysis_lga_level,presidential_analysis_state_level,presidential_analysis_country_level
-from application.app_v1.analysis.presidential_analysis.tab3_copy import presidential_analysis_polling_unit_level_prediction,presidential_analysis_ward_level_prediction,presidential_analysis_lga_level_prediction,presidential_analysis_state_level_prediction,presidential_analysis_country_level_prediction
-from application.app_v1.analysis.presidential_analysis.tab2_copy import presidential_analysis_polling_unit_level_party,presidential_analysis_ward_level_party,presidential_analysis_state_level_party,presidential_analysis_country_level_party,presidential_analysis_lga_level_party
+from app.application.app_v1.collation.presidential_collation import country,state,lga,ward,polling_unit
+from app.application.app_v1.mobile import mobile,upload_data
+from app.application.app_v1.results.presidential_results import presidential_results_polling_unit_level,presidential_results_ward_level,presidential_results_lga_level,presidential_results_state_level,presidential_results_country_level
+from app.application.app_v1.analysis.presidential_analysis.tab1 import presidential_analysis_polling_unit_level,presidential_analysis_ward_level,presidential_analysis_lga_level,presidential_analysis_state_level,presidential_analysis_country_level
+from app.application.app_v1.analysis.presidential_analysis.tab3_copy import presidential_analysis_polling_unit_level_prediction,presidential_analysis_ward_level_prediction,presidential_analysis_lga_level_prediction,presidential_analysis_state_level_prediction,presidential_analysis_country_level_prediction
+from app.application.app_v1.analysis.presidential_analysis.tab2_copy import presidential_analysis_polling_unit_level_party,presidential_analysis_ward_level_party,presidential_analysis_state_level_party,presidential_analysis_country_level_party,presidential_analysis_lga_level_party
 # ,presidential_analysis_ward_level_party,presidential_analysis_lga_level_party,presidential_analysis_state_level_party,presidential_analysis_country_level_party
-from application.app_v1.comparism.presidential import presidential_analysis_country_level_comparism,presidential_analysis_lga_level_comparism,presidential_analysis_state_level_comparism,presidential_analysis_ward_level_comparism
+from app.application.app_v1.comparism.presidential import presidential_analysis_country_level_comparism,presidential_analysis_lga_level_comparism,presidential_analysis_state_level_comparism,presidential_analysis_ward_level_comparism
 from mangum import Mangum
-from application.app_v1.analysis.senate_analysis.tab1 import senate_analysis_country_level,senate_analysis_lga_level,senate_analysis_polling_unit_level,senate_analysis_state_level,senate_analysis_ward_level
-from application.app_v1.results.senate_results import senate_results_country_level,senate_results_lga_level,senate_results_polling_unit_level,senate_results_ward_level,senate_results_state_level
-from application.app_v1.analysis.rep_analysis.tab1 import rep_analysis_country_level,rep_analysis_lga_level,rep_analysis_polling_unit_level,rep_analysis_state_level,rep_analysis_ward_level
-from application.app_v1.results.rep_results import  rep_results_country_level,rep_results_lga_level,rep_results_polling_unit_level,rep_results_state_level,rep_results_ward_level
+from app.application.app_v1.analysis.senate_analysis.tab1 import senate_analysis_country_level,senate_analysis_lga_level,senate_analysis_polling_unit_level,senate_analysis_state_level,senate_analysis_ward_level
+from app.application.app_v1.results.senate_results import senate_results_country_level,senate_results_lga_level,senate_results_polling_unit_level,senate_results_ward_level,senate_results_state_level
+from app.application.app_v1.analysis.rep_analysis.tab1 import rep_analysis_country_level,rep_analysis_lga_level,rep_analysis_polling_unit_level,rep_analysis_state_level,rep_analysis_ward_level
+from app.application.app_v1.results.rep_results import  rep_results_country_level,rep_results_lga_level,rep_results_polling_unit_level,rep_results_state_level,rep_results_ward_level
 
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from application.app_v1.auth.auth import Auth
+from app.application.app_v1.auth.auth import Auth
 
 from fastapi_jwt import (
     JwtAccessBearerCookie,
@@ -2232,7 +2232,7 @@ def mlprediction(urlkey: str= None,credentials: HTTPAuthorizationCredentials = S
     """
     resp = requests.post(url, headers=headers, data=data)
     resp = resp.json()
-    return {"dummy":"0"}
+    # return {"dummy":"0"}
     v = resp['data'][0]['matches']
     outputlabel = v[0]['text']
     outputscore = v[0]['scores']['clip_score']['value']
@@ -2242,7 +2242,7 @@ def mlprediction(urlkey: str= None,credentials: HTTPAuthorizationCredentials = S
 
 """.....................Dashboard.................... """
 
-from application.app_v1.dashboard import dashboard
+from app.application.app_v1.dashboard import dashboard
 @app.post("/dashboard_pollingunit",tags=["Dashboard routes"])
 async def dashboardpu(type:str= Body(...),constiuency_name:int= Body(...)):
 

@@ -1,5 +1,5 @@
-from application.app_v1.database import get_db,get_db2
-from application.app_v1.results.presidential_results.partytable import presidential_table_ward
+from app.application.app_v1.database import get_db,get_db2
+from app.application.app_v1.results.presidential_results.partytable import presidential_table_ward
 import json
 
 

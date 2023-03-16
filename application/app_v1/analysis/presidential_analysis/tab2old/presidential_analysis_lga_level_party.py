@@ -1,4 +1,4 @@
-from application.app_v1.database import get_db
+from app.application.app_v1.database import get_db
 
 
 

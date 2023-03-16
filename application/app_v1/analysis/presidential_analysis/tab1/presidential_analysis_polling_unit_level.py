@@ -1,9 +1,9 @@
 
-from application.app_v1.database import get_db,get_db2
+from app.application.app_v1.database import get_db,get_db2
 
 import asyncio
 import json
-from application.app_v1.analysis.presidential_analysis.tab1.party_table import presidential_table_pu
+from app.application.app_v1.analysis.presidential_analysis.tab1.party_table import presidential_table_pu
 import json
 import time
 
