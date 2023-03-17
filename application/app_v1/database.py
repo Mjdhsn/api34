@@ -20,7 +20,7 @@ def get_db():
         cursorclass=pymysql.cursors.DictCursor
     )
 
-# def get_db2():
+# def get_db():
 #     return snowflake.connector.connect(
 
 #     user= 'ismail',
@@ -31,7 +31,7 @@ def get_db():
 #     warehouse='TEST'
 # )
 
-# def get_db2():
+# def get_db():
 #     return snowflake.connector.connect(
 
 #     user= 'sjdhsn',
@@ -42,7 +42,7 @@ def get_db():
 #     warehouse='TEST'
 # )
 
-# def get_db2():
+# def get_db():
 #     return snowflake.connector.connect(
 
 #     user= 'jameel',
@@ -54,7 +54,7 @@ def get_db():
 # )
 
 
-# def get_db2():
+# def get_db():
 #     return snowflake.connector.connect(
 
 #     user= 'lawan',
@@ -65,7 +65,7 @@ def get_db():
 #     warehouse='TRIAL',
 # )
 
-# def get_db2():
+# def get_db():
 #     return snowflake.connector.connect(
 
 #     user= 'maryam',
@@ -77,7 +77,7 @@ def get_db():
 # )
 
 
-# def get_db2():
+# def get_db():
 #     return snowflake.connector.connect(
 
 #     user= 'hassana',
@@ -89,7 +89,7 @@ def get_db():
 # )
 
 
-#def get_db2():
+#def get_db():
 #    return snowflake.connector.connect(
 
 #    user= 'hafsa',
@@ -101,7 +101,7 @@ def get_db():
 #)
 
 
-# def get_db2():
+# def get_db():
 #     return snowflake.connector.connect(
 
 #     user= 'maryam',
@@ -114,7 +114,7 @@ def get_db():
 
 
 
-def get_db2():
+def get_db():
     return snowflake.connector.connect(
 
     user= 'majid',

@@ -1,10 +1,10 @@
 
-from application.app_v1.database import get_db,get_db2
+from application.app_v1.database import get_db,get_db
 from datetime import datetime
 import json
 # Get states
 def getCountrybadge():
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
 
         sql = "SELECT COUNTRY_ID, COUNTRY_NAME FROM country_result_table;"
@@ -36,7 +36,7 @@ def getCountrybadge():
 
 
 def getCountry():
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
 
         sql = "SELECT COUNTRY_ID, COUNTRY_NAME FROM country_result_table;"
@@ -64,7 +64,7 @@ def getCountry():
 
 # Get country
 def getCountryResult(COUNTRY_NAME):
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
         sql = f"""SELECT * FROM country_result_table where COUNTRY_ID = {COUNTRY_NAME}"""
         sql1 = f"SELECT * FROM userdata_country"
@@ -109,7 +109,7 @@ def getCountryResult(COUNTRY_NAME):
 
 def updateCountryResult(COUNTRY_NAME, data={}):
     now = datetime.now() 
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
       
 
@@ -142,7 +142,7 @@ def updateCountryResult(COUNTRY_NAME, data={}):
 def cancelCountryResult(COUNTRY_NAME, data={}):
     now = datetime.now() 
     data2 = data.copy()
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
         timer = now.strftime("%m/%d/%Y, %H:%M:%S")
 

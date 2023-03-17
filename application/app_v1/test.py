@@ -144,7 +144,7 @@ import urllib.request
 import shutil
 import re
 import difflib
-def get_db2():
+def get_db():
     return snowflake.connector.connect(
 
     user= 'maryam',
@@ -313,7 +313,7 @@ for index, row in df.iterrows():
         final_query = f"Update {table_name} SET {part},{numberquery},status='collated' where pu_code={pu_code}"
         sql = f"""Update PU_RESULT_TABLE SET file='{image_name}' Where pu_code={pu_code}"""
 
-        with get_db2() as conn:
+        with get_db() as conn:
             cur = conn.cursor()
             try:
                 cur.execute(final_query)

@@ -1,4 +1,4 @@
-from application.app_v1.database import get_db,get_db2
+from application.app_v1.database import get_db,get_db
 from application.app_v1.results.senate_results.partytable import presidential_table_ward
 import json
 
@@ -8,7 +8,7 @@ import json
 # lga results
 
 def get_ward_lga_all_results(country_name="undefined",state_name="undefined",district_name="undefined", lga_name="undefined",party_data={}):
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
     
         district_query = ""
@@ -83,7 +83,7 @@ def get_ward_lga_all_results(country_name="undefined",state_name="undefined",dis
 # state results
 
 def get_ward_state_all_results(country_name="undefined",state_name="undefined",district_name="undefined",party_data={}):
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
 
         district_query = ""

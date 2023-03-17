@@ -1,7 +1,7 @@
 
 
 
-from application.app_v1.database import get_db,get_db2
+from application.app_v1.database import get_db,get_db
 import json
 from datetime import datetime
 

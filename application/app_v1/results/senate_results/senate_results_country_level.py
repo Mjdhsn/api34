@@ -1,4 +1,4 @@
-from application.app_v1.database import get_db,get_db2
+from application.app_v1.database import get_db,get_db
 from application.app_v1.results.presidential_results.partytable import presidential_table_country
 import json
 
@@ -74,7 +74,7 @@ parties_values =  "A, AA, ADP, APP, AAC, ADC, APC, APGA, APM, BP, LP, NRM, NNPP,
 
 
 def get_country_country_all_results(data={}):
-    with get_db2() as conn:
+    with get_db() as conn:
         cur = conn.cursor()
       
 

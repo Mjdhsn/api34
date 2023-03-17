@@ -1,10 +1,10 @@
 from application.app_v1.comparism.presidential.party_comparism  import comparism_table
-from application.app_v1.database import get_db2
+from application.app_v1.database import get_db
 import time
 import json
 
 def get_ward_ward_all_results(country_id,state_id,lga_id,ward_id):
-       with get_db2() as conn:
+       with get_db() as conn:
         cur = conn.cursor()
         
         conditions_country = {
