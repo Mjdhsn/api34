@@ -1,4 +1,4 @@
-from app.application.app_v1.database import get_db
+from application.app_v1.database import get_db
 from datetime import datetime
 from datetime import datetime
 import json
