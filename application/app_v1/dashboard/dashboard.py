@@ -55,7 +55,7 @@ WHERE row_num<2 and total_valid_votes>0  AND party="APC"    """,
             "Lga's_led_APC":f"""{presidential_table_pu['query']}     select count(*) AS count1 from win_lga WHERE row_num<2 and total_valid_votes>0  AND party="APC"          """,
             "Lga's_led_APC_table":f"""{presidential_table_pu['query']}   select lga_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_lga 
 WHERE row_num<2 and total_valid_votes>0  AND party="APC"     """,
-            # "PU_won_PDP":f"""{presidential_table_pu['query']} select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="PDP" """,
+            #  "PU_won_PDP":f"""{presidential_table_pu['query']} select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="PDP" """,
             # "PU_won_PDP_table":f"""{presidential_table_pu['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
 # WHERE row_num<2 and total_valid_votes>0  AND party="PDP" """,
             "Wards_led_PDP":f"""{presidential_table_pu['query']}  select count(*) AS count1 from win_ward WHERE row_num<2 and total_valid_votes>0  AND party="PDP"  """,
@@ -74,7 +74,7 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP"    """,
             "Lga's_led_ADP":f"""{presidential_table_pu['query']}  select count(*) AS count1 from win_lga WHERE row_num<2 and total_valid_votes>0  AND party="ADP"                   """,
             "Lga's_led_ADP_table":f"""{presidential_table_pu['query']}  select lga_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_lga 
 WHERE row_num<2 and total_valid_votes>0  AND party="ADP" """,
-            "Party Led in Kano stat4e":f"""{presidential_table_pu['query']}    SELECT ROW_NUMBER() OVER(PARTITION BY state_name ORDER BY votes DESC) AS row_num,party FROM win_state  where row_num=1
+            "Party Led in Kano State":f"""{presidential_table_pu['query']}    SELECT ROW_NUMBER() OVER(PARTITION BY state_name ORDER BY votes DESC) AS row_num,party FROM win_state  where row_num=1
          """
             
 
@@ -139,7 +139,7 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP"    """,
             "Lga's_led_ADP":f"""{presidential_table_ward['query']}  select count(*) AS count1 from win_lga WHERE row_num<2 and total_valid_votes>0  AND party="ADP"                   """,
             "Lga's_led_ADP_table":f"""{presidential_table_ward['query']}  select lga_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_lga 
 WHERE row_num<2 and total_valid_votes>0  AND party="ADP" """,
-            "Party Led in Kano state":f"""{presidential_table_ward['query']}    SELECT ROW_NUMBER() OVER(PARTITION BY state_name ORDER BY votes DESC) AS row_num,party FROM win_state  where row_num=1
+            "Party Led in Kano State":f"""{presidential_table_ward['query']}    SELECT ROW_NUMBER() OVER(PARTITION BY state_name ORDER BY votes DESC) AS row_num,party FROM win_state  where row_num=1
          """
             
 
@@ -262,11 +262,11 @@ def pollingunit_dashboard(type,constiuency_name):
                     "over-voting_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code,pu_name,Total_Registered_voters,Total_Accredited_voters, total_valid_votes,over_vote_values, remarks from pu where over_vote_values>0 and house_id={constiuency_name} """,
                     "scores": f"""{presidential_table_pu_rep['query']} select NNPP,APC,PDP,ADP from house where house_id={constiuency_name} """,
                     
-                    "PU_won_NNPP":f"""{presidential_table_pu_rep['query']}  select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="NNPP" and house_id={constiuency_name} """,
+                    # "PU_won_NNPP":f"""{presidential_table_pu_rep['query']}  select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="NNPP" and house_id={constiuency_name} """,
                 
                 
-                    "PU_won_NNPP_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
-        WHERE row_num<2 and total_valid_votes>0  AND party="NNPP" and house_id={constiuency_name}""",
+                    # "PU_won_NNPP_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
+        # WHERE row_num<2 and total_valid_votes>0  AND party="NNPP" and house_id={constiuency_name}""",
 
 
                     "Wards_led_NNPP":f"""{presidential_table_pu_rep['query']}  select count(*) AS count1 from win_ward WHERE row_num<2 and total_valid_votes>0  AND party="NNPP"  and house_id={constiuency_name}       """,
@@ -275,28 +275,28 @@ def pollingunit_dashboard(type,constiuency_name):
                     "Lga's_led_NNPP":f"""{presidential_table_pu_rep['query']}     select count(*) AS count1 from win_lga WHERE row_num<2 and total_valid_votes>0  AND party="NNPP"  and house_id={constiuency_name}    """,
                     "Lga's_led_NNPP_table":f"""{presidential_table_pu_rep['query']}   select lga_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_lga 
         WHERE row_num<2 and total_valid_votes>0  AND party="NNPP" and house_id={constiuency_name}    """,
-                    "PU_won_APC":f"""{presidential_table_pu_rep['query']}  select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="APC" and house_id={constiuency_name} """,
-                    "PU_won_APC_table": f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
-        WHERE row_num<2 and total_valid_votes>0  AND party="APC"  and house_id={constiuency_name} """,
+                    # "PU_won_APC":f"""{presidential_table_pu_rep['query']}  select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="APC" and house_id={constiuency_name} """,
+                    # "PU_won_APC_table": f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
+        # WHERE row_num<2 and total_valid_votes>0  AND party="APC"  and house_id={constiuency_name} """,
                     "Wards_led_APC":f"""{presidential_table_pu_rep['query']}   select count(*) AS count1 from win_ward WHERE row_num<2 and total_valid_votes>0  AND party="APC" and house_id={constiuency_name}      """,
                     "Wards_led_APC_table":f"""{presidential_table_pu_rep['query']}  select lga_name,ward_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_ward 
         WHERE row_num<2 and total_valid_votes>0  AND party="APC" and house_id={constiuency_name}   """,
                     "Lga's_led_APC":f"""{presidential_table_pu_rep['query']}     select count(*) AS count1 from win_lga WHERE row_num<2 and total_valid_votes>0  AND party="APC"  and house_id={constiuency_name}        """,
                     "Lga's_led_APC_table":f"""{presidential_table_pu_rep['query']}   select lga_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_lga 
         WHERE row_num<2 and total_valid_votes>0  AND party="APC"  and house_id={constiuency_name}   """,
-                    "PU_won_PDP":f"""{presidential_table_pu_rep['query']} select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="PDP" and house_id={constiuency_name} """,
-                    "PU_won_PDP_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
-        WHERE row_num<2 and total_valid_votes>0  AND party="PDP" and house_id={constiuency_name} """,
+                    # "PU_won_PDP":f"""{presidential_table_pu_rep['query']} select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="PDP" and house_id={constiuency_name} """,
+                    # "PU_won_PDP_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
+        # WHERE row_num<2 and total_valid_votes>0  AND party="PDP" and house_id={constiuency_name} """,
                     "Wards_led_PDP":f"""{presidential_table_pu_rep['query']}  select count(*) AS count1 from win_ward WHERE row_num<2 and total_valid_votes>0  AND party="PDP" and house_id={constiuency_name}  """,
                     "Wards_led_PDP_table":f"""{presidential_table_pu_rep['query']}    select lga_name,ward_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_ward 
         WHERE row_num<2 and total_valid_votes>0  AND party="PDP"  and house_id={constiuency_name}    """,
                     "Lga's_led_PDP":f"""{presidential_table_pu_rep['query']}  select count(*) AS count1 from win_lga WHERE row_num<2 and total_valid_votes>0  AND party="PDP" and house_id={constiuency_name}        """,
                     "Lga's_led_PDP_table":f"""{presidential_table_pu_rep['query']}  select lga_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_lga 
         WHERE row_num<2 and total_valid_votes>0  AND party="PDP"  and house_id={constiuency_name}       """,
-                    "PU_won_ADP":f"""{presidential_table_pu_rep['query']}   select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuency_name}
-        """,
-                    "PU_won_ADP_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
-        WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuency_name} """,
+                    # "PU_won_ADP":f"""{presidential_table_pu_rep['query']}   select count(*) AS count1 from win_pu WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuency_name}
+        # """,
+                    # "PU_won_ADP_table":f"""{presidential_table_pu_rep['query']} select lga_name,ward_name,pu_code, pu_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_pu 
+        # WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuency_name} """,
                     "Wards_led_ADP":f"""{presidential_table_pu_rep['query']}       select count(*) AS count1 from win_ward WHERE row_num<2 and total_valid_votes>0  AND party="ADP"  and house_id={constiuency_name}           """,
                     "Wards_led_ADP_table":f"""{presidential_table_pu_rep['query']}  select lga_name,ward_name, votes as Scores, total_vote_casted,Total_Registered_voters,Total_Accredited_voters, percentage_votes from win_ward 
         WHERE row_num<2 and total_valid_votes>0  AND party="ADP"   and house_id={constiuency_name} """,
@@ -356,10 +356,10 @@ def pollingunit_dashboard(type,constiuency_name):
                         del ress['over-voting'],ress['total_pu'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
-                        ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"Wards_Led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"LGA's_Led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
-                        ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"Wards_Led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"LGA's_Led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
-                        ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"Wards_Led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"LGA's_Led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
-                        ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"Wards_Led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"LGA's_Led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
+                        ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
+                        ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"ward_led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"lga_led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
+                        ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"ward_led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"lga_led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
+                        ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"ward_led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"lga_led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
                         del ress['scores'],ress['Wards_led_NNPP'],ress['Wards_led_NNPP_table'],ress["Lga's_led_NNPP"],ress["Lga's_led_NNPP_table"]
                         del ress['Wards_led_APC'],ress['Wards_led_APC_table'],ress["Lga's_led_APC"],ress["Lga's_led_APC_table"]
                         del ress['Wards_led_PDP'],ress['Wards_led_PDP_table'],ress["Lga's_led_PDP"],ress["Lga's_led_PDP_table"]
@@ -404,10 +404,10 @@ def pollingunit_dashboard(type,constiuency_name):
                     del ress['over-voting'],ress['total_pu'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
-                    ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"Wards_Led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"LGA's_Led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
-                    ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"Wards_Led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"LGA's_Led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
-                    ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"Wards_Led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"LGA's_Led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
-                    ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"Wards_Led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"LGA's_Led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
+                    ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
+                    ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"ward_led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"lga_led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
+                    ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"ward_led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"lga_led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
+                    ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"ward_led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"lga_led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
                     del ress['scores'],ress['Wards_led_NNPP'],ress['Wards_led_NNPP_table'],ress["Lga's_led_NNPP"],ress["Lga's_led_NNPP_table"]
                     del ress['Wards_led_APC'],ress['Wards_led_APC_table'],ress["Lga's_led_APC"],ress["Lga's_led_APC_table"]
                     del ress['Wards_led_PDP'],ress['Wards_led_PDP_table'],ress["Lga's_led_PDP"],ress["Lga's_led_PDP_table"]
@@ -532,10 +532,10 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuen
                         del ress['over-voting'],ress['total_ward'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
-                        ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"Wards_Led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"LGA's_Led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
-                        ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"Wards_Led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"LGA's_Led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
-                        ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"Wards_Led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"LGA's_Led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
-                        ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"Wards_Led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"LGA's_Led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
+                        ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
+                        ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"ward_led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"lga_led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
+                        ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"ward_led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"lga_led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
+                        ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"ward_led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"lga_led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
                         del ress['scores'],ress['Wards_led_NNPP'],ress['Wards_led_NNPP_table'],ress["Lga's_led_NNPP"],ress["Lga's_led_NNPP_table"]
                         del ress['Wards_led_APC'],ress['Wards_led_APC_table'],ress["Lga's_led_APC"],ress["Lga's_led_APC_table"]
                         del ress['Wards_led_PDP'],ress['Wards_led_PDP_table'],ress["Lga's_led_PDP"],ress["Lga's_led_PDP_table"]
@@ -582,10 +582,10 @@ WHERE row_num<2 and total_valid_votes>0  AND party="ADP" and house_id={constiuen
                     del ress['over-voting'],ress['total_ward'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
-                    ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"Wards_Led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"LGA's_Led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
-                    ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"Wards_Led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"LGA's_Led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
-                    ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"Wards_Led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"LGA's_Led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
-                    ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"Wards_Led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"LGA's_Led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
+                    ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"ward_led":ress['Wards_led_NNPP'],"ward_led_table":ress['Wards_led_NNPP_table'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
+                    ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"ward_led":ress['Wards_led_APC'],"ward_led_table":ress['Wards_led_APC_table'],"lga_led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
+                    ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"ward_led":ress['Wards_led_PDP'],"ward_led_table":ress['Wards_led_PDP_table'],"lga_led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
+                    ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"ward_led":ress['Wards_led_ADP'],"ward_led_table":ress['Wards_led_ADP_table'],"lga_led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
                     
                     del ress['scores'],ress['Wards_led_NNPP'],ress['Wards_led_NNPP_table'],ress["Lga's_led_NNPP"],ress["Lga's_led_NNPP_table"]
                     del ress['Wards_led_APC'],ress['Wards_led_APC_table'],ress["Lga's_led_APC"],ress["Lga's_led_APC_table"]
@@ -706,10 +706,10 @@ def lga_dashboard(type,constiuency_name):
                         del ress['over-voting'],ress['total_lga'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                         ress['table2'] ={}
 
-                        ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"LGA's_Led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
-                        ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"LGA's_Led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
-                        ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"LGA's_Led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
-                        ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"LGA's_Led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
+                        ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
+                        ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"lga_led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
+                        ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"lga_led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
+                        ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"lga_led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
                         del ress['scores'],ress["Lga's_led_NNPP"],ress["Lga's_led_NNPP_table"]
                         del ress["Lga's_led_APC"],ress["Lga's_led_APC_table"]
                         del ress["Lga's_led_PDP"],ress["Lga's_led_PDP_table"]
@@ -756,10 +756,10 @@ def lga_dashboard(type,constiuency_name):
                     del ress['over-voting'],ress['total_lga'],ress['collated'],ress['cancelled'],ress['over-voting_table']
                     ress['table2'] ={}
 
-                    ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"LGA's_Led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
-                    ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"LGA's_Led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
-                    ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"LGA's_Led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
-                    ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"LGA's_Led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
+                    ress['table2']['NNPP'] ={"score":ress['scores'][0]['NNPP'],"lga_led":ress["Lga's_led_NNPP"],"lga_led_table":ress["Lga's_led_NNPP_table"]}
+                    ress['table2']['APC'] ={"score":ress['scores'][0]['APC'],"lga_led":ress["Lga's_led_APC"],"lga_led_table":ress["Lga's_led_APC_table"]}
+                    ress['table2']['PDP'] ={"score":ress['scores'][0]['PDP'],"lga_led":ress["Lga's_led_PDP"],"lga_led_table":ress["Lga's_led_PDP_table"]}
+                    ress['table2']['ADP'] ={"score":ress['scores'][0]['ADP'],"lga_led":ress["Lga's_led_ADP"],"lga_led_table":ress["Lga's_led_ADP_table"]}
                     del ress['scores'],ress["Lga's_led_NNPP"],ress["Lga's_led_NNPP_table"]
                     del ress["Lga's_led_APC"],ress["Lga's_led_APC_table"]
                     del ress["Lga's_led_PDP"],ress["Lga's_led_PDP_table"]
@@ -941,3 +941,4 @@ def place(user):
 
 
     
+
