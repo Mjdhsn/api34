@@ -1,8 +1,8 @@
-from application.app_v1.database import get_db,get_db2
+from app.application.app_v1.database import get_db,get_db2
 from datetime import datetime
 from datetime import datetime
 import json
-from application.app_v1.dashboard.party_table import presidential_table_pu,presidential_table_pu_rep,presidential_table_ward,presidential_table_lga,presidential_table_state,presidential_table_const_rep,presidential_table_lga_rep,presidential_table_ward_rep
+from app.application.app_v1.dashboard.party_table import presidential_table_pu,presidential_table_pu_rep,presidential_table_ward,presidential_table_lga,presidential_table_state,presidential_table_const_rep,presidential_table_lga_rep,presidential_table_ward_rep
 
 
 conditions_pu = {
@@ -941,4 +941,3 @@ def place(user):
 
 
     
-
