@@ -114,7 +114,7 @@ def get_db():
 
 
 
-def get_db():
+def get_db2():
     return snowflake.connector.connect(
 
     user= 'majid',
